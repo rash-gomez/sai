@@ -1,0 +1,48 @@
+{% extends "base_dashboard.html" %}
+
+{% load i18n %} {% load static %}
+
+{% block head_title %}{% trans "Dashboard" %}{% endblock %}
+
+{% block css %}
+
+
+{% endblock %}
+
+{% block content %}
+
+<div class="my_content">
+    <h2>List of Submitted applications</h2>
+
+    {% for doc in docs %}
+    <h3>Application: {{ forloop.counter }}</h3>
+    <p>Date: <span>{{ doc.created_on|date }}</span></p>
+    <p>Time: <span>{{ doc.created_on|time:"TIME_FORMAT" }}</span></p>
+    <p>Application Id: <span>{{ doc.id }}</span></p>
+    <p>Level: <span>{{ doc.level }}</span></p>
+    <p>Field: <span>{{ doc.field }}</span></p>
+    <p>Speciality: <span>{{ doc.speciality }}</span></p>
+    <p>Mode: <span>{{ doc.mode }}</span></p>
+    <p>Session: <span>{{ doc.session.name }} {{ doc.created_on|date:"Y" }}</span></p>
+    {% endfor %}
+</div>
+
+{% endblock %}
+
+
+{% block js %}
+
+<script src="{% static 'base/js/datepicker.js' %}"></script>
+<script src="{% static 'base/js/reset.js' %}"></script>
+<script src="{% static 'base/js/geo.js' %}"></script>
+<script src="{% static 'apply/js/register.js' %}"></script>
+
+<script>
+    $(function () {
+        $("#id_expiry_date").datepicker({
+            format: 'yyyy-mm-dd',
+        });
+    });
+</script>
+
+{% endblock %}

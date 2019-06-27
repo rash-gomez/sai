@@ -1,0 +1,44 @@
+{% extends "base_dashboard.html" %}
+
+{% load i18n %} {% load static %}
+
+{% block head_title %}{% trans "Dashboard" %}{% endblock %}
+
+{% block css %}
+
+
+{% endblock %}
+
+{% block content %}
+
+<div class="my_content">
+        <h2>Delete application</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        <p>Are you sure you want to delete "{{ doc }}"?</p>
+
+        <a href="{% url 'apply:detail_application' pk=doc.id %}">Return</a><br>
+        <button class="button red" type="submit"><span><i class="fa fa-trash"></i></span> Confirm Delete</button>
+    </form>
+</div>
+
+{% endblock %}
+
+
+{% block js %}
+
+<script src="{% static 'base/js/datepicker.js' %}"></script>
+<script src="{% static 'base/js/reset.js' %}"></script>
+<script src="{% static 'base/js/geo.js' %}"></script>
+<script src="{% static 'apply/js/register.js' %}"></script>
+
+<script>
+    $(function () {
+        $("#id_expiry_date").datepicker({
+            format: 'yyyy-mm-dd',
+        });
+    });
+</script>
+
+{% endblock %}

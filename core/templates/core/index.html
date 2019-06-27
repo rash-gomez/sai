@@ -1,0 +1,81 @@
+{% extends "base_dashboard.html" %}
+
+{% load i18n %} {% load static %}
+
+{% block head_title %}{% trans "Dashboard" %}{% endblock %}
+
+{% block css %}
+
+
+{% endblock %}
+
+{% block content %}
+
+<div class="welcome">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="content">
+                    <h2>Welcome to Dashboard</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="my_content">
+    <div class="block">
+        <div class="one">
+            <div>
+                <img src="{% static 'base/img/landing/session_white.png' %}" alt="image">
+            </div>
+            <div>
+                <p>Year</p>
+                <p>2019</p>
+            </div>
+        </div>
+        <div>
+            <p class="number">2</p>
+        </div>
+        <div>
+            <p>Open Session</p>
+        </div>
+    </div>
+    <div class="block block-middle" id="block-middle">
+        <div class="one">
+            <div>
+                <i class="fa fa-folder-open"></i>
+            </div>
+            <div>
+                <p>Year</p>
+                <p>2019</p>
+            </div>
+        </div>
+        <div>
+            <p class="number">1</p>
+        </div>
+        <div>
+            <p>Application Forms</p>
+        </div>
+    </div>
+    <div class="block">
+        <div class="one">
+            <div>
+                <i class="fa fa-file-text-o"></i>
+            </div>
+            <div>
+                <p>Year</p>
+                <p>2019</p>
+            </div>
+        </div>
+        <div>
+            <p class="number">5</p>
+        </div>
+        <div>
+            <p>View Results</p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

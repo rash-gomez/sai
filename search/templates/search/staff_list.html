@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+  {% load i18n %} {% load static %}
+
+    <link rel="stylesheet" href="{% static 'accounts/css/font-awesome.min.css' %}" />
+
+</head>
+<body>
+
+<div class="search">
+  {% include 'search/snippets/search-form.html' %}
+</div>
+
+<h1>List of users in the system"</h1>
+
+<br>
+
+<div class="pharmacist_list">
+
+  <table>
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Phone Number</th>
+        <th>Profile Pic</th>
+        <th>Is Staff</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for profile in profiles %}
+      <tr>
+        <td>{{ profile.user.email }}</td>
+        <td>{{ profile.user.first_name }}</td>
+        <td>{{ profile.user.last_name }}</td>
+        <td>{{ profile.user.phone }}</td>
+        <td>
+          <div class="img">
+            <img src="{{ profile.image.url }}" alt="profile">
+          </div>
+        </td>
+        <td>
+          <form action="{% url 'core:staff_add' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" value="{{ profile.user.id }}" name="user_id">
+
+            {% if user.is_school_staff %}
+
+            <button class="button remove" type="submit"><span><i class="fa fa-trash"></i></span> Remove</button>
+
+            {% else %}
+
+            <button class="button add" type="submit"><span><i class="fa fa-user-plus"></i></span> Add</button>
+
+            {% endif %}
+
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+</div>
+
+<br>
+
+{% if is_paginated %}
+<ul class="pagination">
+
+  {% if page_obj.has_previous %}
+  <li class="arrow"><a href="?page={{ page_obj.previous_page_number }}"><i class="fa fa-chevron-circle-left"></i></a>
+  </li>
+  {% else %}
+  <li class="disabled arrow"><span><i class="fa fa-chevron-circle-left"></i></span></li>
+  {% endif %}
+
+  {% for i in paginator.page_range %}
+
+  {% if page_obj.number == i %}
+  <li class="active">
+    <span>{{ i }} <span class="sr-only">(current)</span></span>
+  </li>
+  {% else %}
+  <li>
+    <a href="?page={{ i }}">{{ i }}</a>
+  </li>
+  {% endif %}
+
+  {% endfor %}
+
+  {% if page_obj.has_next %}
+  <li class="arrow"><a href="?page={{ page_obj.next_page_number }}"><i class="fa fa-chevron-circle-right"></i></a>
+  </li>
+  {% else %}
+  <li class="disabled arrow"><span><i class="fa fa-chevron-circle-right"></i></span></li>
+  {% endif %}
+
+</ul>
+{% endif %}
+
+</body>
+</html>

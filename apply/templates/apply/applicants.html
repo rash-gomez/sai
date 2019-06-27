@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+</head>
+<body>
+
+
+    <a href="{% url 'apply:print_applicants' %}">print</a><br>
+
+    <div>
+
+    <h2>List of Submitted applications</h2>
+
+    {% for doc in docs %}
+    <h3>Application: {{ forloop.counter }}</h3>
+    <p>Email: <span>{{ doc.student.email }}</span></p>
+    <p>First Name: <span>{{ doc.student.first_name }}</span></p>
+    <p>Last Name: <span>{{ doc.student.last_name }}</span></p>
+    <img src="{{ doc.student.profile.image.url }}" alt="profile">
+    <p>Date: <span>{{ doc.created_on|date }}</span></p>
+    <p>Time: <span>{{ doc.created_on|time:"TIME_FORMAT" }}</span></p>
+    <p>Application Id: <span>{{ doc.id }}</span></p>
+    <p>Level: <span>{{ doc.level }}</span></p>
+    <p>Field: <span>{{ doc.field }}</span></p>
+    <p>Speciality: <span>{{ doc.speciality }}</span></p>
+    <p>Mode: <span>{{ doc.mode }}</span></p>
+    <p>Session: <span>{{ doc.session.name }} {{ doc.created_on|date:"Y" }}</span></p>
+
+    <a href="{% url 'apply:detail_application' pk=doc.id %}">View</a>
+    {% endfor %}
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+{% extends "base_dashboard.html" %}
+
+{% load i18n %} {% load static %}
+
+{% block head_title %}{% trans "Dashboard" %}{% endblock %}
+
+{% block css %}
+
+
+{% endblock %}
+
+{% block content %}
+
+<div class="my_content">
+    <div class="profile_content">
+    <div class="profile_heading">
+        <h2>User Profile</h2>
+        <!-- <a href="#">Edit</a> -->
+    </div>
+    <div class="profile_one">
+        <img src="{{ request.user.profile.image.url }}" alt="image">
+        <p>{{ request.user.first_name }} {{ request.user.last_name }}</p>
+    </div>
+    <div class="profile_two">
+        <table>
+            <tbody>
+                <tr>
+                    <td>First Name: </td>
+                    <td>{{ request.user.first_name }}</td>
+                </tr>
+                <tr>
+                    <td>Last Name: </td>
+                    <td>{{ request.user.last_name }}</td>
+                </tr>
+                <tr>
+                    <td>Email: </td>
+                    <td>{{ request.user.email }}</td>
+                </tr>
+                <tr>
+                    <td>Phone Number: </td>
+                    <td>{{ request.user.phone }}</td>
+                </tr>
+                <tr>
+                    <td>Address: </td>
+                    <td>{{ request.user.address }}</td>
+                </tr>
+                <tr>
+                    <td>Nationality: </td>
+                    <td>{{ request.user.nationality.name }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="profile_three">
+        <a class="button" href="{% url 'core:profile_update' %}"><span><i class="fa fa-gear"></i></span> Edit</a>
+    </div>
+</div>
+</div>
+
+{% endblock %}
+
+
+{% block js %}
+
+<script src="{% static 'base/js/datepicker.js' %}"></script>
+<script src="{% static 'base/js/reset.js' %}"></script>
+<script src="{% static 'base/js/geo.js' %}"></script>
+<script src="{% static 'apply/js/register.js' %}"></script>
+
+<script>
+    $(function () {
+        $("#id_expiry_date").datepicker({
+            format: 'yyyy-mm-dd',
+        });
+    });
+</script>
+
+{% endblock %}

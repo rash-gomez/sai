@@ -1,0 +1,29 @@
+{% load static %}
+
+<!-- header -->
+<div class="header">
+    <nav>
+        <ul>
+            <li>
+                <img src="{% static 'base/img/logo1.png' %}" alt="logo">
+                <!-- <h4>SAI</h4> -->
+            </li>
+        </ul>
+        <ul>
+
+            {% if user.is_authenticated %}
+
+            <li><a href="{% url 'account_logout' %}">Dashboard</a></li>
+            <li><a href="{% url 'account_email' %}">Change E-mail</a></li>
+            <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
+
+            {% else %}
+
+            <li><a href="{% url 'account_login' %}">Sign In</a></li>
+            <li><a href="{% url 'account_signup' %}">Sign Up</a></li>
+
+            {% endif %}
+
+        </ul>
+    </nav>
+</div>

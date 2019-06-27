@@ -1,0 +1,223 @@
+{% extends "base_dashboard.html" %}
+
+{% load i18n %} {% load static %}
+
+{% block head_title %}{% trans "Dashboard" %}{% endblock %}
+
+{% block css %}
+
+<link rel="stylesheet" href="{% static 'apply/css/register.css' %}">
+
+{% endblock %}
+
+{% block content %}
+
+<div class="register_content">
+
+    <div class="cap">
+        <span><i class="fa fa-graduation-cap"></i></span>
+        <h2>Apply for Examination Exam</h2>
+    </div>
+
+
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="group">
+            <label for="{{ form.session.id_for_label }}">{{ form.session.label }}</label>
+            {{ form.session }}
+            <div class="alert_error">
+                {{ form.session.errors }}
+            </div>
+            <span class="helptext">{{ form.session.help_text }}</span>
+        </div>
+
+        <div class="group">
+            <label for="{{ form.gender.id_for_label }}">{{ form.gender.label }}</label>
+            {{ form.gender }}
+            <div class="alert_error">
+                {{ form.gender.errors }}
+            </div>
+            <span class="helptext">{{ form.gender.help_text }}</span>
+        </div>
+
+        <div class="group">
+            <label for="{{ form.dob.id_for_label }}">{{ form.dob.label }}</label>
+            <div class="fonts">
+                <span class="icon"><i class="fa fa-calendar"></i></span>
+            </div>
+            {{ form.dob }}
+            <div class="alert_error">
+                {{ form.dob.errors }}
+            </div>
+            <span class="helptext">{{ form.dob.help_text }}</span>
+        </div>
+
+        <div class="group">
+            <label for="{{ form.country.id_for_label }}">{{ form.country.label }}</label>
+            <!-- <div class="fonts">
+                <span class="icon"><i class="fa fa-calendar"></i></span>
+            </div> -->
+            {{ form.country }}
+            <div class="alert_error">
+                {{ form.country.errors }}
+            </div>
+            <span class="helptext">{{ form.country.help_text }}</span>
+        </div>
+
+        <div class="group">
+            <label for="{{ form.state.id_for_label }}">{{ form.state.label }}</label>
+            {{ form.state }}
+            <div class="alert_error">
+                {{ form.state.errors }}
+            </div>
+            <span class="helptext">{{ form.state.help_text }}</span>
+        </div>
+
+        <div class="group">
+            <label for="{{ form.city.id_for_label }}">{{ form.city.label }}</label>
+            {{ form.city }}
+            <div class="alert_error">
+                {{ form.city.errors }}
+            </div>
+            <span class="helptext">{{ form.city.help_text }}</span>
+        </div>
+
+        <div class="group">
+            <label for="{{ form.mode.id_for_label }}">{{ form.mode.label }}</label>
+            {{ form.mode }}
+            <div class="alert_error">
+                {{ form.mode.errors }}
+            </div>
+            <span class="helptext">{{ form.mode.help_text }}</span>
+        </div>
+
+        <div class="group">
+            <label for="{{ form.level.id_for_label }}">{{ form.level.label }}</label>
+            {{ form.level }}
+            <div class="alert_error">
+                {{ form.level.errors }}
+            </div>
+            <span class="helptext">{{ form.level.help_text }}</span>
+        </div>
+
+        <div class="group">
+            <label for="{{ form.field.id_for_label }}">{{ form.field.label }}</label>
+            {{ form.field }}
+            <div class="alert_error">
+                {{ form.field.errors }}
+            </div>
+            <span class="helptext">{{ form.field.help_text }}</span>
+        </div>
+
+        <div class="group">
+            <label for="{{ form.speciality.id_for_label }}">{{ form.speciality.label }}</label>
+            {{ form.speciality }}
+            <div class="alert_error">
+                {{ form.speciality.errors }}
+            </div>
+            <span class="helptext">{{ form.speciality.help_text }}</span>
+        </div>
+
+        <div class="group">
+            <label for="{{ form.cni.id_for_label }}">{{ form.cni.label }}</label>
+            <div class="fonts">
+                <span class="icon"><i class="fa fa-file-text-o"></i></span>
+            </div>
+            {{ form.cni }}
+            <div class="alert_error">
+                {{ form.cni.errors }}
+            </div>
+            <span class="helptext">{{ form.cni.help_text }}</span>
+        </div>
+
+        <div class="group">
+            <label for="{{ form.birth_certificate.id_for_label }}">{{ form.birth_certificate.label }}</label>
+            <div class="fonts">
+                <span class="icon"><i class="fa fa-file-text-o"></i></span>
+            </div>
+            {{ form.birth_certificate }}
+            <div class="alert_error">
+                {{ form.birth_certificate.errors }}
+            </div>
+            <span class="helptext">{{ form.birth_certificate.help_text }}</span>
+        </div>
+
+        <div class="group">
+            <label for="{{ form.gce.id_for_label }}">{{ form.gce.label }}</label>
+            <div class="fonts">
+                <span class="icon"><i class="fa fa-file-text-o"></i></span>
+            </div>
+            {{ form.gce }}
+            <div class="alert_error">
+                {{ form.gce.errors }}
+            </div>
+            <span class="helptext">{{ form.gce.help_text }}</span>
+        </div>
+
+        <div class="group">
+            <label for="{{ form.bts1.id_for_label }}">{{ form.bts1.label }}</label>
+            <div class="fonts">
+                <span class="icon"><i class="fa fa-file-text-o"></i></span>
+            </div>
+            {{ form.bts1 }}
+            <div class="alert_error">
+                {{ form.bts1.errors }}
+            </div>
+            <span class="helptext">{{ form.bts1.help_text }}</span>
+        </div>
+
+        <div class="group">
+            <label for="{{ form.bts2.id_for_label }}">{{ form.bts2.label }}</label>
+            <div class="fonts">
+                <span class="icon"><i class="fa fa-file-text-o"></i></span>
+            </div>
+            {{ form.bts2 }}
+            <div class="alert_error">
+                {{ form.bts2.errors }}
+            </div>
+            <span class="helptext">{{ form.bts2.help_text }}</span>
+        </div>
+
+        <div class="group">
+            <label for="{{ form.bachelor.id_for_label }}">{{ form.bachelor.label }}</label>
+            <div class="fonts">
+                <span class="icon"><i class="fa fa-file-text-o"></i></span>
+            </div>
+            {{ form.bachelor }}
+            <div class="alert_error">
+                {{ form.bachelor.errors }}
+            </div>
+            <span class="helptext">{{ form.bachelor.help_text }}</span>
+        </div>
+
+
+        <div class="submit">
+            <button class="button" type="submit">
+                <span><i class="fa fa-database"></i></span> Apply
+            </button>
+        </div>
+    </form>
+
+</div>
+
+{% endblock %}
+
+
+{% block js %}
+
+<script src="{% static 'base/js/datepicker.js' %}"></script>
+<script src="{% static 'base/js/reset.js' %}"></script>
+<script src="{% static 'base/js/geo.js' %}"></script>
+<script src="{% static 'apply/js/register.js' %}"></script>
+
+
+<script>
+    $(function () {
+        $("#id_expiry_date").datepicker({
+            format: 'yyyy-mm-dd',
+        });
+    });
+</script>
+
+{% endblock %}

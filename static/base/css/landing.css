@@ -1,0 +1,261 @@
+
+
+/* body carousel */
+.carousel{
+    position: relative;
+    height: 90vh;
+    /* width: 100%; */
+    /* margin: 0 auto; */
+    /* background-color: rgba(0, 0, 0, 0.9); */
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.carousel__image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel__track-container{
+    position: relative;
+    /* background-color: rgba(243, 236, 236, 0.3); */
+    width: 97%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.carousel__track{
+    list-style: none;
+    position: relative;
+    height: 100%;
+    transition: transform 250ms ease-in;
+    padding: 0;
+}
+
+.carousel__slide{
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    width: 100%;
+}
+
+.carousel__btn{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: 0;
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 30px;
+    cursor: pointer;
+    /* color: red; */
+    z-index: 10;
+    transition: color 250ms ease-in;
+}
+
+.carousel__btn:hover{
+    color: #333;
+}
+
+.carousel__btn--left{
+    left: 20px;
+}
+
+.carousel__btn--right{
+    left: 96%;
+}
+
+.carousel__nav{
+    /* background-color: blue; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.carousel__indicator{
+    border: 0;
+    border-radius: 50%;
+    width: 13px;
+    height: 13px;
+    background-color: rgba(0,0,0,0.3);
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.carousel__indicator.current-slide{
+    background-color: var(--button-bg);
+}
+
+/* fadding the carousel slides */
+.fade {
+    -webkit-animation: fade 1s ease-in;
+    -moz-animation: fade 1s ease-in;
+    -ms-animation: fade 1s ease-in;
+    -o-animation: fade 1s ease-in;
+    animation: fade 1s ease-in;
+}
+
+@-webkit-keyframes fade{
+    from{opacity: 0.7;}
+    to{opacity: 1;}
+}
+@-moz-keyframes fade{
+    from{opacity: 0.7;}
+    to{opacity: 1;}
+}
+@-o-keyframes fade{
+    from{opacity: 0.7;}
+    to{opacity: 1;}
+}
+
+@keyframes fade {
+    from{opacity: 0.7;}
+    to{opacity: 1;}
+}
+
+
+/* body getting started */
+div.get-started{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 20px auto;
+    width: 550px;
+    /* border: 1px solid red; */
+    padding: 20px;
+}
+
+div.get-started div:first-child{
+    text-align: center;
+    margin-bottom: 20px;
+    /* transform: translateX(-400%);
+    transition: transform 2.2s ease-in; */
+}
+
+div.get-started a,
+.get-rolling a{
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--button-bg);
+    margin-bottom: 20px;
+    transition: border 0.2s ease-in-out;
+
+    /* transform: translateX(-2500%);
+    transition: transform 2.4s ease-in; */
+}
+
+div.get-started a:hover,
+.get-rolling a:hover{
+    transform: scale(1.02)
+}
+
+div.get-started a span,
+.get-rolling a span{
+    margin-right: 10px;
+}
+
+/* body steps how to get started */
+div.how-to{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-size: 14px;
+    padding: 20px 30px;
+    margin-bottom: 30px;
+}
+
+.how-to .step-header{
+    /* border: 1px solid green; */
+}
+
+.how-to .step-header hr{
+    border: 1px solid #eee;
+    background-color: #2b2b2b;
+    width: 34px;
+    height: 3px;
+    display: inline-block;
+    text-align: start;
+}
+
+.how-to .steps{
+    /* border: 1px solid olivedrab; */
+    display: grid;
+    grid-template-areas: "one two" "three three" "four five";
+    grid-gap: 50px;
+}
+
+.how-to .step-one{
+    grid-area: one;
+}
+
+.how-to .step-two{
+    grid-area: two;
+}
+
+.how-to .step-three{
+    grid-area: three;
+    /* border: 1px solid red; */
+    margin: 70px auto;
+}
+
+.how-to .step-four{
+    grid-area: four;
+}
+
+.how-to .step-five{
+    grid-area: five;
+}
+
+.step-container{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    /* align-items: center; */
+}
+
+.step-container .step-icon{
+    width: 60px;
+    height: 50px;
+    margin: 10px 20px auto auto;
+}
+
+.step-container .step-content div:last-child{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5px;
+}
+.step-container .step-content div:last-child div{
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    /* text-align: right; */
+}
+
+/* let's get rolling */
+.get-rolling{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.get-rolling a{
+    margin: 0;
+}

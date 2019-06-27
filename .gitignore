@@ -1,0 +1,8 @@
+*.pyc
+*.ini
+venv/
+*.sqlite3
+.idea/
+.vscode/
+__pycahe__/
+test.py

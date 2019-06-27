@@ -1,0 +1,195 @@
+{% load i18n %} {% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block head_title %}{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'accounts/css/font-awesome.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'dashboard/css/nav.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard/css/student.css' %}">
+
+    {% block extra_head %}
+    {% endblock %}
+
+    {% block css %}
+    {% endblock %}
+</head>
+
+<body>
+
+    <aside class="side-nav" id="show-side-navigation1">
+        <div class="heading">
+            <img src="{{ request.user.profile.image.url }}" alt="profile_image">
+            <div class="info">
+                <h3><a href="{% url 'core:profile' name=request.user.first_name %}">Patricia</a></h3>
+                <p>Can't seem to rest because of internship</p>
+            </div>
+        </div>
+
+        <ul class="categories">
+
+            <li>
+                <i class="fa fa-folder"></i>
+                <a href="#" class="arrow"> Application</a>
+                <ul class="side-nav-dropdown">
+                    <li><a href="{% url 'apply:application_new' %}">New Application</a></li>
+                    <li><a href="{% url 'apply:application_old' %}">Old Application</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <i class="fa fa-users"></i>
+                <a href="#" class="arrow"> Applicants</a>
+                <ul class="side-nav-dropdown">
+                    <li><a href="{% url 'apply:list_application' %}">List of Applicants</a></li>
+                    <li><a href="{% url 'apply:print_applicants' %}">Print list of Applicants</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <i class="fa fa-users"></i>
+                <a href="{% url 'core:user_list' %}"> Staffs</a>
+            </li>
+
+            <li>
+                <i class="fa fa-user"></i>
+                <a href="{% url 'core:profile' name=request.user.first_name %}"> Profile</a>
+            </li>
+
+            <li>
+                <i class="fa fa-gear"></i>
+                <a href="#" class="arrow"> Settings</a>
+                <ul class="side-nav-dropdown">
+                    <li><a href="{% url 'account_change_password' %}">Change Password</a></li>
+                    <!-- <li><a href="dashboard-change-email.html">Change Email</a></li> -->
+                </ul>
+            </li>
+        </ul>
+    </aside>
+
+    <section id="contents">
+        <nav class="navbar navbar-default">
+            <div class="navbar-header mynav">
+                <a class="navbar-brand" href="{% url 'home' %}"><span class="main-color"><i
+                            class="fa fa-home fa-fw"></i></span>Dashboard</a>
+
+                <div class="logout">
+                    <a href="{% url 'account_logout' %}">Logout</a>
+                </div>
+
+                <span class="drop-bar" id="drop_bar"><i class="fa fa-bars"></i></span>
+            </div>
+
+            <div class="drop_aside">
+                <ul class="categories">
+
+                    <li>
+                        <i class="fa fa-folder"></i>
+                        <a href="#" class="arrow"> Application</a>
+                        <ul class="resize-nav-dropdown">
+                            <li><a href="{% url 'apply:application_new' %}">New Application</a></li>
+                            <li><a href="{% url 'apply:application_old' %}">Old Application</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <i class="fa fa-users"></i>
+                        <a href="#" class="arrow"> Applicants</a>
+                        <ul class="resize-nav-dropdown">
+                            <li><a href="{% url 'apply:list_application' %}">List of Applicants</a></li>
+                            <li><a href="{% url 'apply:print_applicants' %}">Print list of Applicants</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <i class="fa fa-users"></i>
+                        <a href="{% url 'core:user_list' %}"> Staffs</a>
+                    </li>
+
+                    <li>
+                        <i class="fa fa-user"></i>
+                        <a href="{% url 'core:profile' name=request.user.first_name %}"> Profile</a>
+                    </li>
+
+                    <li>
+                        <i class="fa fa-gear"></i>
+                        <a href="#" class="arrow"> Settings</a>
+                        <ul class="resize-nav-dropdown">
+                            <li><a href="{% url 'account_change_password' %}">Change Password</a></li>
+                            <!-- <li><a href="dashboard-change-email.html">Change Email</a></li> -->
+                        </ul>
+                    </li>
+
+                    <li>
+                        <i class="fa fa-sign-out"></i>
+                        <a href="{% url 'account_logout' %}">Logout</a>
+                    </li>
+                </ul>
+            </div>
+
+        </nav>
+
+
+        <!-- this is where i'm starting -->
+        <main>
+            <!-- error and messages -->
+            <div class="alert">
+                <ul>
+                    <li class="error"><span>This is an error message span</span><span><i class="fa fa-times"></i></span>
+                    </li>
+                    <li class="success"><span class="message">This is a success message</span><span><i
+                                class="fa fa-times"></i></span></li>
+                </ul>
+            </div>
+
+            <!-- body of the dashboard -->
+            <div class="container" id="target_scroll">
+                {% block content %}
+                {% endblock %}
+            </div>
+
+            <!-- scroll item -->
+            <div>
+                <a href="#target_scroll" id="scroll_item">
+                    <span><i class="fa fa-angle-up"></i></span>
+                </a>
+            </div>
+        </main>
+    </section>
+
+
+    <script src="{% static 'base/js/jquery.js' %}"></script>
+    <script src="{% static 'dashboard/js/dashboard.js' %}"></script>
+    <script src="{% static 'dashboard/js/student.js' %}"></script>
+
+    <script>
+        // smooth scroll effect
+        let scroll_item = document.querySelector("#scroll_item");
+        scroll_item.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            document.querySelector(this.getAttribute("href")).scrollIntoView({
+                behavior: "smooth"
+            });
+        });
+
+        // scroll item disappears on scroll event
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 100) {
+                scroll_item.parentElement.style.display = "block";
+            } else {
+                scroll_item.parentElement.style.display = "none";
+            }
+        });
+    </script>
+
+    {% block js %}
+    {% endblock %}
+</body>
+
+</html>

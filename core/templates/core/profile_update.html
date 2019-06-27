@@ -1,0 +1,56 @@
+{% extends "base_dashboard.html" %}
+
+{% load i18n %} {% load static %}
+
+{% block head_title %}{% trans "Dashboard" %}{% endblock %}
+
+{% block css %}
+
+
+{% endblock %}
+
+{% block content %}
+
+<div class="my_content">
+    <form action="" method="post"  enctype="multipart/form-data">
+        {% csrf_token %}
+            {{ form1.as_p }}
+            {{ form2.as_p }}
+        <input type="submit" value="Update">
+    </form>
+
+
+
+    <!--<select name="country" class="countries" id="countryId">-->
+        <!--<option value="">Select Country</option>-->
+    <!--</select>-->
+    <!--<select name="state" class="states" id="stateId">-->
+        <!--<option value="">Select State</option>-->
+    <!--</select>-->
+    <!--<select name="city" class="cities" id="cityId">-->
+        <!--<option value="">Select City</option>-->
+    <!--</select>-->
+
+    <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
+    <!--<script src="//geodata.solutions/includes/countrystatecity.js"></script>-->
+</div>
+
+{% endblock %}
+
+
+{% block js %}
+
+<script src="{% static 'base/js/datepicker.js' %}"></script>
+<script src="{% static 'base/js/reset.js' %}"></script>
+<script src="{% static 'base/js/geo.js' %}"></script>
+<script src="{% static 'apply/js/register.js' %}"></script>
+
+<script>
+    $(function () {
+        $("#id_expiry_date").datepicker({
+            format: 'yyyy-mm-dd',
+        });
+    });
+</script>
+
+{% endblock %}

@@ -1,0 +1,188 @@
+{% extends "account/base.html" %}
+
+{% load i18n %} {% load static %}
+{% load account socialaccount %}
+
+{% block head_title %}{% trans "sai" %}{% endblock %}
+
+{% block css %}
+
+    <link rel="stylesheet" href="{% static 'base/css/landing.css' %}">
+
+{% endblock %}
+
+{% block content %}
+
+        <!-- body carousel -->
+        <div class="carousel">
+
+            <!-- left button -->
+            <!-- <i class="fas fa-angle-double-left carousel__btn carousel__btn--left"></i> -->
+
+            <!-- slides -->
+            <div class="carousel__track-container">
+                <ul class="carousel__track">
+                    <li class="carousel__slide fade current-slide">
+                        <img class="carousel__image" src="{% static 'base/img/carousel/1.png' %}" alt="image">
+                    </li>
+                    <li class="carousel__slide fade">
+                        <img class="carousel__image" src="{% static 'base/img/carousel/2.jpg' %}" alt="image">
+                    </li>
+                    <li class="carousel__slide fade">
+                        <img class="carousel__image" src="{% static 'base/img/carousel/3.jpg' %}" alt="image">
+                    </li>
+                    <li class="carousel__slide fade">
+                        <img class="carousel__image" src="{% static 'base/img/carousel/4.jpg' %}" alt="image">
+                    </li>
+                    <li class="carousel__slide fade">
+                        <img class="carousel__image" src="{% static 'base/img/carousel/5.jpg' %}" alt="image">
+                    </li>
+                    <li class="carousel__slide fade">
+                        <img class="carousel__image" src="{% static 'base/img/carousel/6.jpg' %}" alt="image">
+                    </li>
+                    <li class="carousel__slide fade">
+                        <img class="carousel__image" src="{% static 'base/img/carousel/7.jpg' %}" alt="image">
+                    </li>
+                    <li class="carousel__slide fade">
+                        <img class="carousel__image" src="{% static 'base/img/carousel/8.jpg' %}" alt="image">
+                    </li>
+                    <li class="carousel__slide fade">
+                        <img class="carousel__image" src="{% static 'base/img/carousel/9.jpg' %}" alt="image">
+                    </li>
+                    <li class="carousel__slide fade">
+                        <img class="carousel__image" src="{% static 'base/img/carousel/10.jpg' %}" alt="image">
+                    </li>
+                    <li class="carousel__slide fade">
+                        <img class="carousel__image" src="{% static 'base/img/carousel/11.jpg' %}" alt="image">
+                    </li>
+                    <li class="carousel__slide fade">
+                        <img class="carousel__image" src="{% static 'base/img/carousel/12.jpg' %}" alt="image">
+                    </li>
+                </ul>
+            </div>
+
+            <!-- right button -->
+            <!-- <i class="fas fa-angle-double-right carousel__btn carousel__btn--right"></i> -->
+
+            <!-- slide indicators -->
+            <div class="carousel__nav">
+                <button class="carousel__indicator current-slide"></button>
+                <button class="carousel__indicator"></button>
+                <button class="carousel__indicator"></button>
+                <button class="carousel__indicator"></button>
+                <button class="carousel__indicator"></button>
+                <button class="carousel__indicator"></button>
+                <button class="carousel__indicator"></button>
+                <button class="carousel__indicator"></button>
+                <button class="carousel__indicator"></button>
+                <button class="carousel__indicator"></button>
+                <button class="carousel__indicator"></button>
+                <button class="carousel__indicator"></button>
+            </div>
+
+        </div>
+
+        <!-- body getting started text -->
+        <div class="get-started">
+            <div id="get-started-text" class="left animatable">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias, asperiores aliquam cum consectetur
+                    minima voluptate fugit voluptatem rerum totam officia aut illo? Iste commodi quo cupiditate quos
+                    itaque, iure aperiam eum esse accusantium!.</p>
+            </div>
+            <div class="">
+                <a href="{% url 'account_signup' %}"><span><i class="fa fa-rocket"></i></span> Get Started</a>
+            </div>
+        </div>
+
+        <!-- body how to get started -->
+        <div class="how-to">
+            <div class="step-header left animatable">
+                <h2>How to get started</h2>
+                <hr>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate at minima soluta aliquid minus
+                    qui?</p>
+            </div>
+            <!-- steps -->
+            <div class="steps right animatable">
+                <div class="step-container step-one">
+                    <div class="step-icon">
+                        <img src="{% static 'base/img/landing/signup.png' %}" alt="image">
+                    </div>
+                    <div class="step-content">
+                        <h3>SignUp</h3>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita, quis.</p>
+                        <div>
+                            <div>1</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step-container step-two">
+                    <div class="step-icon">
+                        <img src="{% static 'base/img/landing/verify.png' %}" alt="image">
+                    </div>
+                    <div class="step-content">
+                        <h3>Verify Email</h3>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita, quis.</p>
+                        <div>
+                            <div>2</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step-container step-three">
+                    <div class="step-icon">
+                        <img src="{% static 'base/img/landing/contacts.png' %}" alt="image">
+                    </div>
+                    <div class="step-content">
+                        <h3>Personal Information</h3>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita, quis.</p>
+                        <div>
+                            <div>3</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step-container step-four">
+                    <div class="step-icon">
+                        <img src="{% static 'base/img/landing/document.png' %}" alt="image">
+                    </div>
+                    <div class="step-content">
+                        <h3>Documents</h3>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita, quis.</p>
+                        <div>
+                            <div>4</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step-container step-five">
+                    <div class="step-icon">
+                        <img src="{% static 'base/img/landing/session.png' %}" alt="image">
+                    </div>
+                    <div class="step-content">
+                        <h3>Choose a Session</h3>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita, quis.</p>
+                        <div>
+                            <div>5</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="get-rolling bottom animatable">
+            <a href="{% url 'account_signup' %}"><span><i class="fa fa-hand-o-right"></i></span> Let's get rolling</a>
+        </div>
+
+
+    {% endblock %}
+
+    {% block extra_body %}
+    {% endblock %}
+
+    {% block js %}
+
+        <script src="{% static 'base/js/landing.js' %}"></script>
+
+    {% endblock %}
+
+</body>
+
+</html>

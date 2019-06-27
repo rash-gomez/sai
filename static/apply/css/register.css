@@ -1,0 +1,142 @@
+.register_content {
+    /* background: red; */
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    padding-top: 15px;
+    margin-bottom: 100px;
+    /* position: relative; */
+    /* background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/static/accounts/img/bg.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat; */
+    /* border: none; */
+}
+
+.register_content h2 {
+    margin: 28px auto;
+    text-align: center;
+}
+
+.register_content .cap {
+    position: relative;
+    width: 400px;
+}
+
+.register_content .cap span {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    color: var(--button-bg);
+    font-size: 36px;
+}
+
+.register_content .cap span i {
+    transform: rotate(-20deg)
+}
+
+.register_content .alert_error {
+    color: red;
+    margin: 8px auto;
+}
+
+.register_content .alert_error ul {
+    list-style: none;
+}
+
+.register_content .helptext {
+    color: green;
+    font-size: 14px;
+}
+
+.register_content form {
+    display: block;
+}
+
+/* form starting stylings ------------------------------- */
+
+.register_content .group {
+    /* border: 1px solid red; */
+    /* position: relative; */
+    margin: 15px auto;
+    /* border: 1px solid black; */
+}
+
+.register_content textarea,
+.register_content select {
+    padding: 10px;
+    margin-top: 5px;
+    display: block;
+    width: 400px;
+    border: none;
+    border-radius: 5px;
+    font-size: 17px;
+}
+
+.register_content select option {
+    color: #fff;
+    background-color: var(--nav-bg);
+}
+
+.register_content textarea {
+    overflow: auto;
+    height: 100px;
+    resize: none;
+}
+
+.register_content input {
+    font-size: 18px;
+    padding: 10px 10px 10px 50px;
+    margin-top: 5px;
+    display: block;
+    width: 400px;
+    border: none;
+    border-radius: 5px;
+    border-bottom: 1px solid #757575;
+}
+
+.register_content .image {
+    color: #333;
+}
+
+.register_content input[type="file"] {
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    background-color: #fff;
+}
+
+.register_content .fonts {
+    position: relative;
+}
+
+.register_content .icon {
+    position: absolute;
+    top: 20.7px;
+    left: 8px;
+    /* bottom: 50%; */
+    transform: translateY(-23%);
+    padding-right: 10px;
+    border-right: 1px solid rgba(0, 0, 0, 0.5)
+        /* margin-right: 40px; */
+}
+
+.register_content .icon i {
+    font-size: 18px;
+    color: #333;
+}
+
+.register_content input:focus {
+    outline: none;
+}
+
+/* LABEL ======================================= */
+
+.register_content label {
+    font-size: 18px;
+    color: #fff;
+    pointer-events: none;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
